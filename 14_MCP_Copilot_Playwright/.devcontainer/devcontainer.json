@@ -1,0 +1,30 @@
+{
+  "name": "MCP + Copilot + Playwright Lab",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": "false",
+      "username": "node"
+    }
+  },
+
+  "postCreateCommand": "npm install && npx -y playwright install --with-deps chromium",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-playwright.playwright"
+      ],
+      "settings": {
+        "chat.mcp.discovery.enabled": true,
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "forwardPorts": [],
+  "remoteUser": "node"
+}
